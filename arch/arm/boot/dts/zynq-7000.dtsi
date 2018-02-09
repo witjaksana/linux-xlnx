@@ -70,6 +70,21 @@
 		interrupt-parent = <&intc>;
 		ranges;
 
+        config_controller: mwmr_controller_test@43c00000 {
+			compatible = "swift-generic";
+			reg = <0x43c00000 0x10000>;
+			xlnx,s-axi-addr-width = <0x4>;
+			xlnx,s-axi-data-width = <0x20>;
+			interrupts = <0 29 1>;
+			interrupt-parent = <&intc>;
+        };
+
+        timer_controller: mwmr_controller_test@43c10000 {
+			reg = <0x43c10000 0x10000>;
+			xlnx,s-axi-addr-width = <0x4>;
+			xlnx,s-axi-data-width = <0x20>;
+        };
+
 		adc: adc@f8007100 {
 			compatible = "xlnx,zynq-xadc-1.00.a";
 			reg = <0xf8007100 0x20>;
