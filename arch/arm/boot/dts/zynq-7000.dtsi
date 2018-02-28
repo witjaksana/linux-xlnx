@@ -62,7 +62,23 @@
 		#address-cells = <1>;
 		#size-cells = <1>;
 		interrupt-parent = <&intc>;
-		ranges;
+		ranges; 
+
+        
+        config_ctrl: mwmr_controller_test@43c00000 {
+			compatible = "dacs-generic";
+			reg = <0x43c00000 0x10000>;
+			xlnx,s-axi-addr-width = <0x4>;
+			xlnx,s-axi-data-width = <0x20>;
+			interrupts = <0 29 1>;
+			interrupt-parent = <0x3>;
+        };
+
+        timing_ctrl: mwmr_controller_test@43c10000 {
+			reg = <0x43c10000 0x10000>;
+			xlnx,s-axi-addr-width = <0x4>;
+			xlnx,s-axi-data-width = <0x20>;
+        };
 
 		adc: adc@f8007100 {
 			compatible = "xlnx,zynq-xadc-1.00.a";
